@@ -1,4 +1,4 @@
-package datastructure;
+package datastructure.average;
 
 import java.util.Arrays;
 

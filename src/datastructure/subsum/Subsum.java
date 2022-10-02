@@ -1,4 +1,4 @@
-package datastructure;
+package datastructure.subsum;
 
 import java.util.Arrays;
 

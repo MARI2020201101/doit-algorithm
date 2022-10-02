@@ -1,4 +1,4 @@
-package datastructure;
+package datastructure.sum;
 
 class Sum2 {
     public static void main(String[] args) {
