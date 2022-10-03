@@ -15,14 +15,12 @@ class Okunsu2 {
         stack.push(idx);
         int[] result = new int[4];
         for (int i = 1; i < arr.length; i++) {
-
             if(arr[stack.pop()] < arr[i]){
-                while(idx < i){ //idx = 1,1
+                while(idx < i){
                     result[idx++] = arr[i];
                 }
             }
             stack.push(idx);
-
             if(i == arr.length-1){
                 result[i] = -1;
             }
