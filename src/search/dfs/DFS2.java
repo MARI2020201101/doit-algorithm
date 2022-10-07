@@ -1,6 +1,6 @@
-package search;
+package search.dfs;
 
-class DFS {
+class DFS2 {
     static int[][] arr = {
             {0,0,0,0,0,0,0},
             {0,0,1,0,0,1,0},
@@ -18,18 +18,20 @@ class DFS {
         System.out.println("count="+count);
     }
     static void dfs(){
-//        visited[1] = true;
-        int i;
-        for(i=1; ;){
-            if(! visited[i]) {
+        for (int i = 1; i < arr.length; i++) {
+            if(! visited[i]){
                 count++;
-                for (int j = 1; j < arr[i].length; j++) {
-                    if(visited[j]) continue;
-                    if(arr[i][j]==1) {
-                        visited[j]=true;
-                        i=j;
-                    }
-                }
+                _dfs(i);
+            }
+        }
+    }
+
+    private static void _dfs(int v) {
+        if(visited[v]) return;
+        visited[v] = true;
+        for (int i = 1; i < arr.length; i++) {
+            if(arr[v][i]==1 && ! visited[i]){
+                _dfs(i);
             }
         }
     }

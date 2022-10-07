@@ -1,4 +1,4 @@
-package search;
+package search.dfs;
 
 class AmazingPrime {
     static int N = 4;
