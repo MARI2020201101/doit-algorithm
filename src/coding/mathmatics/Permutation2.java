@@ -2,7 +2,6 @@ package coding.mathmatics;
 
 class Permutation2 {
     static String abcd = "ABCD";
-    static int N = abcd.length();
 
     public static void main(String[] args) {
         permutation("", abcd);
