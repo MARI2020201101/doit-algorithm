@@ -1,12 +1,10 @@
 package coding.mathmatics;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Locale;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.*;
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
 
 class CountStr {
     public static void main(String[] args) {
