@@ -23,13 +23,11 @@ class BinarySearch {
                     contain = 1;
                     break;
                 }
-                if(target[i] < arr[mid]){
+                else if(target[i] < arr[mid]){
                     end = mid-1;
-                    continue;
                 }
-                if(target[i] > arr[mid]){
+                else{
                     start = mid+1;
-                    continue;
                 }
             }
             System.out.println(contain==1? 1 : 0);
