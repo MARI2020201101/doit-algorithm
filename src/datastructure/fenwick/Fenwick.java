@@ -8,7 +8,12 @@ class Fenwick {
 
     public static void main(String[] args) {
         createFenwickTree();
-        System.out.println(subsum(5,10));
+        System.out.println(subsum(10,5));
+        int result = 0;
+        for (int i = 6; i <=10 ; i++) {
+            result+=arr[i];
+        }
+        System.out.println("result="+result);
     }
     static int subsum(int from, int to){
         return _subsum(from) - _subsum(to);
