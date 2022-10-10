@@ -4,9 +4,8 @@ class Lcm {
     public static void main(String[] args) {
         System.out.println(gcd(12,10));
         System.out.println(gcd(40,8));
+        System.out.println(gcd(111,111111));
     }
-
-
 
     static int gcd(int n, int m){
         while(m!=0 && n!=0) {
