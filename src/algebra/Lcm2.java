@@ -5,6 +5,7 @@ class Lcm2 {
         System.out.println(lcm(1,45000));
         System.out.println(lcm(6,10));
         System.out.println(lcm(13,17));
+
     }
 
 
