@@ -1,7 +1,7 @@
 package graph;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.awt.desktop.QuitResponse;
+import java.util.*;
 
 class Hacking2 {
 
@@ -18,6 +18,24 @@ class Hacking2 {
     }
 
     public static void main(String[] args) {
-        System.out.println(arr);
+        hacking();
+    }
+    static int[] trusted = new int[N];
+    static void hacking(){
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 1; i < arr.length; i++) {
+            for(Integer node : arr[i]){
+                trusted[node] += 1;
+                queue.add(node);
+            }
+        }
+        while(! queue.isEmpty()){
+            Integer node = queue.poll();
+            for(Integer next : arr[node]){
+                trusted[next] += 1;
+                queue.add(next);
+            }
+        }
+        System.out.println(Arrays.toString(trusted));
     }
 }
