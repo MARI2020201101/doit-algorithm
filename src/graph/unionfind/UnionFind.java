@@ -1,5 +1,7 @@
 package graph.unionfind;
 
+import java.util.Arrays;
+
 class UnionFind {
     static int[] arr = {0,1,2,3,4,5,6,7};
 
@@ -12,6 +14,7 @@ class UnionFind {
         unionFind(0,4,2);
         unionFind(0,1,1);
         unionFind(1,1,1);
+
     }
     static void unionFind(int uf, int a, int b){
         if(uf == 0){
