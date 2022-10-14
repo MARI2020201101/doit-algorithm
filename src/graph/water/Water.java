@@ -1,4 +1,4 @@
-package graph;
+package graph.water;
 
 class Water {
     static int N = 3;

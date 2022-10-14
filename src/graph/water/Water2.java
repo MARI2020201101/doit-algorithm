@@ -1,10 +1,10 @@
-package graph;
+package graph.water;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-class Water3 {
+class Water2 {
     static int N = 3;
     static int[] bucket = {8,9,10};
     static int[] water = {0,0,10};
