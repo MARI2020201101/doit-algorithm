@@ -22,6 +22,15 @@ class MinPath {
         nodes.get(3).add(new Node(4,6));
 
     }
+    static void dijkstra(int i){
+        for(Node node : nodes.get(i)){
+            if(! visited[node.idx]){
+                visited[node.idx]=true;
+                answer[node.idx] = Math.min(answer[node.idx], node.distance);
+                dijkstra(node.idx , answer[node.idx]);
+            }
+        }
+    }
 
     public static void main(String[] args) {
         answer[1] = 0;
@@ -35,8 +44,6 @@ class MinPath {
                 visited[node.idx]=true;
                 answer[node.idx] = Math.min(answer[node.idx], distance + node.distance);
                 dijkstra(node.idx , answer[node.idx]);
-                visited[node.idx]=false;
-
             }
         }
     }
