@@ -27,15 +27,15 @@ class KthMin {
         }
     }
     public static void main(String[] args) {
-        dp(1,0);
+        dfs(1,0);
         System.out.println(Arrays.toString(answer));
     }
-    static void dp(int i, int value){
+    static void dfs(int i, int value){
         for (int j = 1; j < N; j++) {
             if(! visited[j] && arr[i][j]!=Integer.MAX_VALUE){
                 visited[j] = true;
                 answer[j].add(value + arr[i][j]);
-                dp(j, value + arr[i][j]);
+                dfs(j, value + arr[i][j]);
                 visited[j] = false;
             }
         }
