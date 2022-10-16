@@ -1,8 +1,6 @@
 package graph.dijkstra;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 class MinPath2 {
     static int N = 6;
@@ -23,9 +21,30 @@ class MinPath2 {
 
     }
 
+    public static void main(String[] args) {
+        answer[1] = 0;
+        visited[1] = true;
+        dijkstra(1);
+        System.out.println(Arrays.toString(answer));
+    }
     static void dijkstra(int i){
+        Queue<Node> queue = new LinkedList<>();
         for (Node node : nodes.get(i)){
-
+            if(! visited[node.idx]){
+                visited[node.idx] = true;
+                answer[node.idx] = Math.min(answer[node.idx], node.distance);
+                queue.offer(new Node(node.idx, node.distance));
+            }
+        }
+        while (! queue.isEmpty()){
+            Node j = queue.poll();
+            for (Node node : nodes.get(j.idx)){
+                if(! visited[node.idx]){
+                    visited[node.idx] = true;
+                    answer[node.idx] = Math.min(answer[node.idx], j.distance + node.distance);
+                    queue.offer(new Node(node.idx, answer[node.idx]));
+                }
+            }
         }
     }
 }
