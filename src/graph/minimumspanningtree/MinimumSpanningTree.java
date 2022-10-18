@@ -23,7 +23,7 @@ class MinimumSpanningTree {
             if(find(edge.from) != find(edge.to)){
                 union(edge.from, edge.to);
                 System.out.println(Arrays.toString(parent));
-                answer += Math.max(answer, edge.cost);
+                answer += edge.cost;
             }
         }
         System.out.println("answer = " + answer);
