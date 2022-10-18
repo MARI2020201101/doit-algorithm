@@ -1,12 +1,7 @@
 package graph.floydwarshall;
 
-class SearchPath {
-//    static int N = 3;
-//    static int[][] arr = {
-//            {0,1,0},
-//            {0,0,1},
-//            {1,0,0}
-//    };
+class SearchPath2 {
+
     static int N = 7;
     static int[][] arr ={
             {0,0,0,1,0,0,0},
@@ -18,13 +13,6 @@ class SearchPath {
             {0,0,1,0,0,0,0}
     };
     static int[][] answer = new int[N][N];
-//    static {
-//        for (int i = 0; i < N; i++) {
-//            for (int j = 0; j < N; j++) {
-//                if(i==j) answer[i][j]=1;
-//            }
-//        }
-//    }
 
     public static void main(String[] args) {
         solve();
@@ -32,9 +20,9 @@ class SearchPath {
     }
     static void solve(){
 
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                for (int k = 0; k < N; k++) {
+        for (int k = 0; k < N; k++) {
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
                     if((arr[i][k]==1 && arr[k][j]==1)|| arr[i][j]==1) {
                         answer[i][j]=1;
 
