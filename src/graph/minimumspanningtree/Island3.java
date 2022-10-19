@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-class Island2 {
+class Island3 {
     static int N = 7;
     static int M = 8;
     static int[][] map = {
@@ -22,14 +22,34 @@ class Island2 {
     static int[] Y = {0,-1,0,1};
     static Queue<Bridge> queue = new PriorityQueue<>();
     static int[] parent = new int[N*M];
+    static int totalCost = 0;
+    static boolean[] added = new boolean[N*M];
 
 
     public static void main(String[] args) {
         island();
         print();
         bridge();
+        mst();
     }
 
+    static void mst(){
+        for (int i = 0; i < parent.length; i++) {
+            parent[i] = i;
+        }
+
+        while(! queue.isEmpty()){
+            Bridge edge = queue.poll();
+            if(added[edge.to]) continue;
+            if(find(edge.from) != find(edge.to)){
+                added[edge.from] = true;
+                added[edge.to] = true;
+                union(edge.from, edge.to);
+                totalCost += edge.len;
+            }
+        }
+        System.out.println("totalCost = "+totalCost);
+    }
     static void island(){
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
@@ -125,43 +145,15 @@ class Island2 {
             System.out.println();
         }
     }
-
-}
-class Bridge implements Comparable<Bridge>{
-    int from;
-    int to;
-    int len;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Bridge bridge = (Bridge) o;
-        return from == bridge.from && to == bridge.to && len == bridge.len;
+    static void union(int a, int b){
+        int A = find(a);
+        int B = find(b);
+        if(A != B){
+            parent[b] = A;
+        }
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(from, to, len);
-    }
-
-    public Bridge(int from, int to, int len) {
-        this.from = from;
-        this.to = to;
-        this.len = len;
-    }
-
-    @Override
-    public String toString() {
-        return "Bridge{" +
-                "from=" + from +
-                ", to=" + to +
-                ", len=" + len +
-                '}';
-    }
-
-    @Override
-    public int compareTo(Bridge o) {
-        return this.len - o.len;
+    static int find(int a){
+        if(parent[a] == a) return a;
+        else return parent[a] = find(parent[a]);
     }
 }
