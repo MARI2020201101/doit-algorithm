@@ -42,6 +42,7 @@ class LeafNode {
         if(tree[root].size() == 0){
             leafNodeCount++;
         }
+
         for (Integer child: tree[root]) {
             if(! visited[child]){
                 visited[child] = true;
@@ -49,7 +50,6 @@ class LeafNode {
                     dfs(child);
                 }
             }
-
         }
     }
 }
