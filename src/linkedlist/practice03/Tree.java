@@ -1,0 +1,59 @@
+package linkedlist.practice03;
+
+class Tree {
+    Node root = new Node();
+    public Tree(int data){
+        root.data = data;
+    }
+    public void addNode(int data){
+        Node node = root;
+        while(node.next!=null){
+            node = node.next;
+        }
+        node.next = new Node(data);
+    }
+
+    public void printNode(){
+        Node node = root;
+        System.out.print(node.data);
+        while(node.next!= null){
+            System.out.print(" -> ");
+            System.out.print(node.next.data);
+            node = node.next;
+        }
+        System.out.println();
+    }
+
+
+    public Node kthNode(int k){
+        Node p1 = root;
+        Node p2 = root;
+        for (int i = 0; i < k; i++) {
+            p1 = p1.next;
+        }
+        while(p1.next != null){
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+        return p2;
+    }
+
+}
+
+
+
+class Node{
+    int data;
+    Node next;
+
+    public Node() {
+    }
+
+    public Node(int data) {
+        this.data = data;
+    }
+
+    public void setNext(Node next) {
+        this.next = next;
+    }
+}
