@@ -27,8 +27,8 @@ class LeafNode5 {
 
 
     static void deleteChildNode(int target){
-        for(MyNode child : nodes[target].children){
-            nodes[target].children.remove(child);
+        for(MyNode child : nodes[target].child){
+            nodes[target].child.remove(child);
             deleteChildNode(child.idx);
         }
 
@@ -36,12 +36,12 @@ class LeafNode5 {
 
     static void countLeafNode(int parent){
         visited[parent] = true;
-        if(nodes[parent].children.size() == 0 ) {
+        if(nodes[parent].child.size() == 0 ) {
             leafNodeCount++;
             return;
         }
         else {
-            for(MyNode child : nodes[parent].children){
+            for(MyNode child : nodes[parent].child){
                 if(! visited[child.idx]){
                     countLeafNode(child.idx);
                 }
@@ -53,14 +53,14 @@ class LeafNode5 {
 
 class MyNode{
     int idx;
-    List<MyNode> children = new ArrayList<>();
+    List<MyNode> child = new ArrayList<>();
 
     public MyNode(int idx) {
         this.idx = idx;
     }
     public void addChild(MyNode... child){
         for(MyNode c : child){
-            this.children.add(c);
+            this.child.add(c);
         }
     }
 }
