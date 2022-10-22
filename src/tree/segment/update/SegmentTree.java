@@ -1,28 +1,30 @@
-package tree.segment.subsum;
+package tree.segment.update;
 
 import java.util.Arrays;
 
 class SegmentTree {
-    static int[] arr = {5,8,4,3,7,2,1,6};
+    static int[] arr = {1,2,3,4,5};
     static int N = arr.length;
-    static int[] subsum = new int[(int) (Math.pow(2,(int)(Math.log(N)+1))*2)];
+
+    static int[] subsum = new int[(int) (Math.pow(2,(Math.log10(N)/Math.log10(2))+1))];
     static int M = subsum.length;
 
     public static void main(String[] args) {
         segmentTree();
-
+        update(3,6);
+        System.out.println(Arrays.toString(subsum));
     }
 
     static void update(int idx, int val){
         arr[idx] = val;
         int sIdx = M / 2 + idx;
+        System.out.println("sIdx = "+sIdx);
         int original = subsum[sIdx];
-        int diff = original - val;
+        int diff = val-original;
         subsum[sIdx] = val;
-        while(sIdx /2 >0){
-            subsum[sIdx] += diff;
-            subsum[sIdx+1] += diff;
+        while(sIdx/2 >0){
             sIdx=sIdx/2;
+            subsum[sIdx] += diff;
         }
     }
 
