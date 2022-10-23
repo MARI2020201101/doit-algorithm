@@ -7,6 +7,7 @@ class Tree {
     static int[] tree = new int[calculateTreeSize(arr.length)];
 
     public static void main(String[] args) {
+
         sumSegmentTree(tree, 1, 0, arr.length -1);
         System.out.println(Arrays.toString(tree));
     }
