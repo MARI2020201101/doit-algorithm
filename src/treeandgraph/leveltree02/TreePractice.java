@@ -81,7 +81,7 @@ class Tree{
     ArrayList<LinkedList<Node>> createLevelTree(ArrayList<LinkedList<Node>> lists, int level){
        int idx = depthOfTree();
        Node node = root;
-        LinkedList<Node> list = new LinkedList<>();
+        LinkedList<Node> list = new LinkedList<>(); //큐로 사용할 링크드리스트
         list.add(node);
         lists.add(list);
         while(idx > level){
