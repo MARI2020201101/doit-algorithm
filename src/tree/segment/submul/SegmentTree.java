@@ -7,9 +7,9 @@ class SegmentTree {
     static int[] tree = new int[lenOfTree(arr)];
 
     public static void main(String[] args) {
-        System.out.println(lenOfTree(arr));
         createMultiplySegmentTree(tree);
         System.out.println(Arrays.toString(tree));
+        System.out.println(calculate(tree, 1, 1, arr.length-1, 1,3));
     }
     static int lenOfTree(int[] arr){
         int arrLen = arr.length;
@@ -18,6 +18,16 @@ class SegmentTree {
     static void createMultiplySegmentTree(int[] tree){
         Arrays.setAll(tree, a -> 1);
         createMultiplySegmentTree(tree, 1, 0, arr.length-1);
+    }
+    static int calculate(int[] tree, int node, int start,int end,  int subStart, int subEnd){
+        if(end < subStart || start > subEnd) {
+            return 1;
+        }
+        if(start >= subStart && subEnd >= end){
+            return tree[node];
+        }
+        return calculate(tree, node*2, start, (start+end)/2, subStart, subEnd)
+        * calculate(tree, node*2+1,(start+end)/2+1 , end, subStart, subEnd);
     }
     private static int createMultiplySegmentTree(int[] tree, int node, int start, int end){
         if(start == end){
