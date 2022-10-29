@@ -8,6 +8,8 @@ class MaxSequence {
     }
     static int longestSequence(int n){
         ArrayList<Integer> sequences = createSequenceList(n);
+        sequences.forEach(s-> System.out.print(s+","));
+        System.out.println();
         return findLongestSequence(sequences);
     }
 
