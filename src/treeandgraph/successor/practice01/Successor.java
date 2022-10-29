@@ -1,4 +1,4 @@
-package treeandgraph.successor;
+package treeandgraph.successor.practice01;
 
 
 class Successor {
