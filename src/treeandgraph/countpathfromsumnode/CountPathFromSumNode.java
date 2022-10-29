@@ -33,17 +33,17 @@ class CountPathFromSumNode {
         if(node == null) return 0;
 
         runningSum += node.data;
-        int totalSum = sumMap.getOrDefault(runningSum - targetSum, 0);
+        int totalCount = sumMap.getOrDefault(runningSum - targetSum, 0);
 
         if(runningSum == targetSum){
-            totalSum++;
+            totalCount++;
         }
         incrementPathCount(sumMap, runningSum, 1);
-        totalSum+=countPathsWithSum(node.left, targetSum, runningSum, sumMap);
-        totalSum+=countPathsWithSum(node.right, targetSum, runningSum, sumMap);
+        totalCount+=countPathsWithSum(node.left, targetSum, runningSum, sumMap);
+        totalCount+=countPathsWithSum(node.right, targetSum, runningSum, sumMap);
         incrementPathCount(sumMap, runningSum, -1);
 
-        return totalSum;
+        return totalCount;
     }
 
     private static void incrementPathCount(HashMap<Integer, Integer> sumMap, int key, int delta) {
