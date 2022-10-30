@@ -17,10 +17,11 @@ class PermutationOrder {
         for(int i = 1;i <=N ; i++){
             permutation[i]=N-i+1;
         }
+
         for(int i = 2; i <=N ; i++){
             permutation[i] *= permutation[i-1];
         }
-
+        System.out.println(Arrays.toString(permutation));
         System.out.println(Arrays.toString(number));
     }
     static void printOrder(int[] permutation, int k){
