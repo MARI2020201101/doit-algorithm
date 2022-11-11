@@ -20,7 +20,7 @@ class Knapsack {
             for (int j = 0; j < arr[0].length; j++) {
                 if(arr[i-1][j] != 0 && j + stuffs[i].kg <= MAX_SIZE){
                     arr[i][j+stuffs[i].kg] = arr[i-1][j] + stuffs[i].value;
-                }else if(arr[i-1][j] != 0){
+                }if(arr[i-1][j] != 0){
                     arr[i][j] = arr[i-1][j];
                 }else if(stuffs[i].kg <= MAX_SIZE){
                     arr[i][stuffs[i].kg] = stuffs[i].value;
