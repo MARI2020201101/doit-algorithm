@@ -6,7 +6,7 @@ class TravelingSalesman {
     static int N = 4;
     static int[][] arr = {
             {0,10,15,20},
-            {5,0,0,10},
+            {5,0,9,10},
             {6,13,0,12},
             {8,8,9,0},
     };
