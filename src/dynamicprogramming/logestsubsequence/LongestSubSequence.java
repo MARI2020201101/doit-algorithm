@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 class LongestSubSequence {
-    static int[] arr ={10,20,10,30,20,50};
+//    static int[] arr ={10,20,10,30,20,50};
+    static int[] arr ={11,5,10,12,7,14,3,8,24,2};
     static int N = arr.length;
 
     public static void main(String[] args) {

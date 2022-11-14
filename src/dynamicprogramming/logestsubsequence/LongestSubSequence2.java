@@ -10,7 +10,13 @@ public class LongestSubSequence2 {
     public static void main(String[] args) {
         List<Integer> bestSolution = findBestSolution(arr);
         bestSolution.forEach(System.out::println);
+
+        System.out.println("=======");
+        int[] arr2 ={11,5,10,12,7,14,3,8,24,2};
+        List<Integer> bestSolution2 = findBestSolution(arr2);
+        bestSolution2.forEach(System.out::println);
     }
+
     static List<Integer> findBestSolution(int[] arr){
         List<List<Integer>> solutions = new ArrayList<>();
         List<Integer> bestSolution = new ArrayList<>();
@@ -19,7 +25,6 @@ public class LongestSubSequence2 {
             solutions.add(i, solution);
             bestSolution = solution.size() > bestSolution.size() ? solution : bestSolution;
         }
-
         return bestSolution;
     }
 
