@@ -3,7 +3,7 @@ package highlevel.smallestk;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.PriorityQueue;
-import java.util.Queue;
+
 
 class SmallestK {
     static int[] arr = {17,10,3,18,4,11,5,12,8,20,9,16,2,15,0,19,1,14,6,7,13};

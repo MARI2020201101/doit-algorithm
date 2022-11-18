@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Util {
     static void print(int[][] arr){
         for (int i = 0; i < arr.length; i++) {
@@ -6,5 +8,10 @@ public class Util {
             }
             System.out.println();
         }
+    }
+    private static void swap(int[] arr, int left, int right) {
+        int tmp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = tmp;
     }
 }
